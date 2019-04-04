@@ -9,12 +9,35 @@
 //
 //}
 //
-// };
-fgtr
+// }
+
+if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
+    $user->singUp();
+}
+
+
+
+
+$login = '';
+$password = '';
+$confirm = '';
+$email = "";
+$errorEmail= '';
+$DateOfBirth = '';
+
+$error = 'ddtlbnt';
+$errorlogin = 'ddtlbnt';
+$errorPassword = ' ddtlbnt';
+$errorConfirm = 'ddtlbnt';
+$errorUser = 'ddtlbnt';
+
+
+
 $host = "localHost";
 $dbname = "gbook";
 $user = "root";
 $password = "";
+
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
@@ -25,14 +48,10 @@ try {
 
     $stmt -> execute(array('name'=>'perfect', 'password'=>'ih','email'=>'cymntgh@bbt.ru'));
 
-
-
-
-
-
-
-
-
+}
+catch(PDOException $e) {
+    echo $e->getMessage();
+}
 
 //    $stmt = $db->prepare("SELECT * FROM msgs WHERE name=? AND password=?");
 //    $stmt->bindValue(1, 'valera', PDO::PARAM_STR);
@@ -82,10 +101,9 @@ try {
 
 
                // echo $sql;
-}
-catch(PDOException $e) {
-    echo $e->getMessage();
-}
+
+
+
 
 
 
@@ -101,41 +119,50 @@ catch(PDOException $e) {
 ?>
 
 
-<form method="POST" action="">
-    <div class="form-group">
-        <label for="login"></label>
-        <input type="email" class="form-control border border-danger " name="login" aria-describedby="emailHelp"
-               placeholder="login">
-        <small name="emailHelp" class="form-text text-muted "
-        </small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1"></label>
-        <input type="email" class="form-control" name="exampleInputEmail1" aria-describedby="emailHelp"
-               placeholder="Enter email">
-        <small name="emailHelp" class="form-text text-muted"></small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1"></label>
-        <input type="password" class="form-control  error" name="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1"></label>
-        <input type="password" class="form-control error" name="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">
-            to register
-        </button>
-    </div>
+
+<div class="formRegister">
+    <form   method="POST" action=""  novalidate>
+        <h3>Регистрация</h3>
+        <div class="login">
+            <p>login: <?=$errorlogin?></p>
+                <input   type="login" name="login" value="<?=$login?>" placeholder="">
+
+        </div>
 
 
-</form>
+        <div class="email">
+            <p>email: <?=$errorEmail?></p>
+            <input  type="email" name="email"
+                    value="<?=$email?>" placeholder="">
+
+        </div>
+
+
+        <div class="password">
+            <p>password:<?=$errorPassword?></p>
+            <input  type="password" name="password"  value="<?=$password?>">
+
+        </div>
+        <div class="confirm">
+            <p>confirm: <?=$errorConfirm?>
+            <input  type="password" name="confirm"
+                    value="<?=$password?>">
+
+
+            <div class="submit">
+                <input class="submit" type="submit" name="submitReg" value="Register">
+            </div>
+
+        </div>
 
 
 
-</body>
-</html>
+
+
+
+    </form>
+</div>
+
 
 
 

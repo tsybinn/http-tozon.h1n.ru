@@ -10,7 +10,7 @@
 //}
 //
 // };
-
+fgtr
 $host = "localHost";
 $dbname = "gbook";
 $user = "root";

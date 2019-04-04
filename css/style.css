@@ -1,0 +1,217 @@
+ border{
+
+     border:1px solid red;
+ }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    /*font-family: 'Russo One', sans-serif;*/
+
+}
+ li {
+     list-style-type: none; /* Убираем маркеры */
+ }
+ ul {
+     margin-left: 0; /* Отступ слева в браузере IE и Opera */
+     padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+ }
+
+
+ a:hover{
+     text-decoration: none;
+
+ }
+
+p{
+
+    margin:0;
+    padding:0;
+
+}
+
+
+/*HEADER*/
+
+body{
+
+    min-width: 1200px;
+    margin:1px;
+}
+
+/*header*/
+
+ header{
+
+     border-bottom: 1px solid #F5F5F5;
+
+ }
+.headerInfo{
+    #border: 1px solid red;
+    background:#F5F5F5;
+
+
+}
+
+.linkInfoNav:hover {
+
+text-decoration: none;
+    color:#CBB826;
+
+}
+
+ .label a{
+
+
+     font-family: 'Love Ya Like A Sister', cursive;
+     font-size: 50px;
+     color:blue;
+     decoration:none;
+ }
+
+.ulInfoNav {
+
+    margin:0;
+    display: flex;
+    justify-content:space-between;
+
+    /*flex-basis:auto auto auto 50%;*/
+
+
+}
+
+ .ulInfoNav img{
+
+     margin-bottom: 4px;
+
+ }
+
+ .ulInfoNav p{
+
+     margin:3px;
+ }
+.ulInfoNav{
+
+    font-size: 13px;
+}
+.ulInfoNavLocal{
+
+    margin-left:20px;
+    font-size:18px;
+    font-weight: bolder;
+}
+
+
+.ulInfoNavCon{
+
+    display:flex;
+   # margin-top:-4px;
+    flex-basis: 20%;
+    color: dimgrey;
+    margin-right:-4%;
+}
+.ulInfoNavCon p {
+    margin:0;
+    margin-top : -1px;
+    margin-left:5px;
+    font-size: 18px;
+
+}
+
+ /*headerSearch*/
+.headerSearch{
+    display: flex;
+
+}
+
+.search{
+
+
+    margin: auto 0;
+    margin-left:2%;
+
+    flex-basis: 60%;
+
+}
+
+.searchString{
+
+    vertical-align: middle;
+    padding-left: 20px;
+    border:2px solid blue;
+    border-radius: 5px;
+    width:90%;
+    height: 35px;
+}
+
+.searchSubmit {
+    width:  50px;
+    height: 50px;
+
+    padding:0;
+    border: 0;
+    background: transparent url('../img/search.jpg') no-repeat ;
+    background-size: cover;
+;
+    text-indent: -1000em;
+    cursor: pointer;
+    cursor: hand;
+}
+.headerSearch{
+
+    margin-top:0;
+
+    display:flex;
+    justify-content:space-between
+}
+
+
+
+
+.headerLogin{
+
+    margin-top:10px;
+    display:flex;
+    justify-content:space-between;
+    flex-basis: 30%;
+    margin-right:10px;
+
+}
+
+.headerLogin li{
+  width:20%;
+
+    text-align: center;
+
+
+
+
+}
+
+ .headerLogin li:hover{
+
+     background: #F5F5F5;
+     color:#CBB826;
+
+ }
+
+ .headerLogin a:hover {
+
+     text-decoration: none;
+     color:#CBB826;
+
+
+ }
+
+ .label {
+     margin-left:20px;
+
+ }
+
+ .ulHeaderCategory{
+     display:flex;
+     justify-content: space-around
+ ;
+ }
+

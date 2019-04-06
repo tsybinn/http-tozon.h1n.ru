@@ -2,5 +2,6 @@
 
 
 interface Iuser{
-    function singUp();
+    function singUp($login,$email,$password);
+
 }

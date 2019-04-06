@@ -6,8 +6,8 @@
 
         <ul class="ulInfoNav">
             <li class="ulInfoNavLocal"> <img src="img/location.png "
-                                        width="20" height="20" alt="local">
-                <a class="linkInfoNav" href="#">Москва</a></li>
+                                        width="15" height="15" alt="local">
+                <a class="linkInfoNav" href="#"><string>Москва</string></a></li>
 
                 <li class="ulInfoNav"><a class="linkInfoNav" href="#">
 
@@ -23,12 +23,14 @@
 
             <li class="ulInfoNav"><a class="linkInfoNav" href="#">
 
-                    <p>Условие Возврата</p></a></li>
+                    <p>Условие Возврата</p></a>
+            </li>
 
             <li class="ulInfoNav"><a class="linkInfoNav" href="#">
 
                     <p> Помощь</p></a>
-            </li>  <li class="ulInfoNavCon"><img src="img/24.png" width="25" height="25"><p>+ 7-000-000-00-00</p>
+            </li>
+            <li class="ulInfoNavCon"><img src="img/24.png" width="25" height="25"><p>+ 7-000-000-00-00</p>
          </li>
 
 
@@ -41,7 +43,7 @@
 </div>
 
 <div class="headerSearch">
-    <div class="label "><a href="#">TOZON</a>
+    <div class="label "><a href="index.php">TOZON</a>
     </div>
 
     <div class="search ">
@@ -50,7 +52,7 @@
     </div>
 
     <div class="headerLogin ">
-        <li class=""><a href="#"><img src="img/profle.png" width="40"  height="40" alt="login"><p>sing</p> </a>    </li>
+        <li class=""><a href="?signUp"><img src="img/profle.png" width="40"  height="40" alt="login"><p>sign</p> </a>    </li>
         <li class=""><a href="#"><img src="img/frames.png" width="40"  height="40" alt="login"><p>orders</p> </a>  </li>
         <li class=""><a href="#"><img src="img/heart.png" width="40"  height="40" alt="login"><p>favorites</p> </a> </li>
         <li class=""><a href="#"><img src="img/empty.png" width="40"  height="40" alt="login"><p>basket</p> </a>   </li>

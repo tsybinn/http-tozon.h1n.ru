@@ -11,47 +11,99 @@
 //
 // }
 
+
+$title = "SING UP";
+$error = '';
+$errorL = "";
+$errorP = "";
+$errorE = "";
+$errorC= "";
+$errorlogin = '';
+$errorPassword = '';
+$errorConfirm = '';
+$errorEmail = '';
 if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
-    $user->singUp();
+
+    $login = $user->clear($_POST['login']);
+    $email = $user->clear($_POST['email']);
+    $password = $user->clear($_POST['password']);
+    $confirm = $user->clear($_POST['confirm']);
+
+    if(empty($login)){
+
+        $errorL = 'errorL';
+        $errorlogin =  'input login';
+            }
+
+    if (preg_match
+        ("#^[0-9-a-zA-Z-.]#",$login) == false){
+        $errorL = 'errorL';
+        //echo  'only latins sumbol';
+        $errorlogin =  ' input login only latins sumbol';
+    }
+
+    if(empty($password)){
+
+        $errorP = 'errorP';
+        $errorPassword =  'input password';
+
+    } if(empty($email)){
+
+        $errorE = 'errorE';
+        $errorEmail =  'input email';
+
+    }
+
+    if ( $password !== $confirm){
+        $errorC = "errorC";
+        $errorPassword = " password do not match ";
+
+        $password =  md5( $_POST['password']);
+
+    }
+
+
+    if (empty($errorC) and empty($errorL) and empty ($errorP) and empty($errorE)){
+
+        if (!$user->singUp($login,$email,$password)) {
+
+            $errorL = 'errorL';
+            $errorlogin =  'user with such login exists';
+        } else
+
+       // echo "ok";
+
+        header("Location: index.php");
+    }
+
+
+
+
+
+
+
+
+
+
+     //echo $row_count;
+
+
+
 }
 
 
 
 
-$login = '';
-$password = '';
-$confirm = '';
-$email = "";
-$errorEmail= '';
-$DateOfBirth = '';
-
-$error = 'ddtlbnt';
-$errorlogin = 'ddtlbnt';
-$errorPassword = ' ddtlbnt';
-$errorConfirm = 'ddtlbnt';
-$errorUser = 'ddtlbnt';
 
 
 
-$host = "localHost";
-$dbname = "gbook";
-$user = "root";
-$password = "";
 
 
-try {
-    $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-       $db->exec("set names utf8");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $db->prepare("INSERT INTO msgs (name,password,email) VALUES (:name,:password, :email)");
 
 
-    $stmt -> execute(array('name'=>'perfect', 'password'=>'ih','email'=>'cymntgh@bbt.ru'));
+//$stmt = $db->prepare("INSERT INTO msgs (name,password,email) VALUES (:name,:password, :email)");
 
-}
-catch(PDOException $e) {
-    echo $e->getMessage();
-}
+//$stmt -> execute(array('name'=>'vasy', 'password'=>'555','email'=>'555555@bbt.ru'));
 
 //    $stmt = $db->prepare("SELECT * FROM msgs WHERE name=? AND password=?");
 //    $stmt->bindValue(1, 'valera', PDO::PARAM_STR);
@@ -79,7 +131,7 @@ catch(PDOException $e) {
 
 
 
-//  $sql = "SELECT * FROM msgs WHERE name='valera' AND password=2222";
+//
 //
 //
 //    $stmt = $db->query($sql);
@@ -92,28 +144,9 @@ catch(PDOException $e) {
 //        echo "<p>" . $row['name'] . "&nbsp;" . $row['password'] . "</p>";
 //
 //    }
-
   //if ($user == 0)
 
-
-
-
-
-
                // echo $sql;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
@@ -124,33 +157,34 @@ catch(PDOException $e) {
     <form   method="POST" action=""  novalidate>
         <h3>Регистрация</h3>
         <div class="login">
-            <p>login: <?=$errorlogin?></p>
-                <input   type="login" name="login" value="<?=$login?>" placeholder="">
+            <p>login: <span class="inputEr"> <?=$errorlogin?></span></p>
+                <input class="<?=$errorL?>"   type="login" name="login" value="<?php  if(isset($_POST['submitReg']))
+                    echo $login;?>" placeholder="">
 
         </div>
 
 
-        <div class="email">
-            <p>email: <?=$errorEmail?></p>
-            <input  type="email" name="email"
-                    value="<?=$email?>" placeholder="">
+        <div class="email ">
+            <p>email: <span class="inputEr"><?=$errorEmail?></span> </p>
+            <input  class="<?=$errorE?>"  type="email" name="email"
+                    value="<?php  if(isset($_POST['submitReg'])) echo $email;?>" placeholder="">
 
         </div>
 
 
         <div class="password">
-            <p>password:<?=$errorPassword?></p>
-            <input  type="password" name="password"  value="<?=$password?>">
+            <p>password:<span class="inputEr"><?=$errorPassword?></span></p>
+            <input class="<?=$errorP?>" type="password" name="password"  value="">
 
         </div>
         <div class="confirm">
-            <p>confirm: <?=$errorConfirm?>
-            <input  type="password" name="confirm"
-                    value="<?=$password?>">
+            <p>confirm:<span class="inputEr"> <?=$errorConfirm?></span></p>
+            <input class="<?=$errorC?>"  type="password" name="confirm"
+                    value="">
 
 
             <div class="submit">
-                <input class="submit" type="submit" name="submitReg" value="Register">
+                <input class="submit" type="submit" name="submitReg" value="Sign Up">
             </div>
 
         </div>

@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
 
        // echo "ok";
 
-        header("Location: index.php");
+        header("Location: index.php?signUpOk");
     }
 
 
@@ -91,62 +91,6 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-//$stmt = $db->prepare("INSERT INTO msgs (name,password,email) VALUES (:name,:password, :email)");
-
-//$stmt -> execute(array('name'=>'vasy', 'password'=>'555','email'=>'555555@bbt.ru'));
-
-//    $stmt = $db->prepare("SELECT * FROM msgs WHERE name=? AND password=?");
-//    $stmt->bindValue(1, 'valera', PDO::PARAM_STR);
-//    $stmt->bindValue(2, '2222', PDO::PARAM_INT);
-
-
-   // $stmt->bindValue(1, 'dima', PDO::PARAM_STR);
-   // $stmt->bindValue(2, '2221', PDO::PARAM_INT);
-
-
-   // $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//      foreach($rows as $elem){
-//
-//          echo "$elem[name]";
-//          echo "$elem[password] .  <hr>";
-
-
-
-
-     // }
-
-   // ;
-
-
-
-
-//
-//
-//
-//    $stmt = $db->query($sql);
-////Установка fetch mode
-//    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-//
-//    var_dump($stmt);
-//    while($row = $stmt->fetch())
-//    {
-//        echo "<p>" . $row['name'] . "&nbsp;" . $row['password'] . "</p>";
-//
-//    }
-  //if ($user == 0)
-
-               // echo $sql;
 
 
 ?>
@@ -183,16 +127,11 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
                     value="">
 
 
-            <div class="submit">
-                <input class="submit" type="submit" name="submitReg" value="Sign Up">
+            <div class="singUpSubmit">
+                <input class="singUpSubmit" type="submit" name="submitReg" value="Sign Up">
             </div>
 
         </div>
-
-
-
-
-
 
     </form>
 </div>

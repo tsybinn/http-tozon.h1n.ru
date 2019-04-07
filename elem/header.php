@@ -30,6 +30,9 @@
 
                     <p> Помощь</p></a>
             </li>
+            <li class="ulInfoNavLogin">
+                    <p>логин:  <span>в корзине:</span></p>
+            </li>
             <li class="ulInfoNavCon"><img src="img/24.png" width="25" height="25"><p>+ 7-000-000-00-00</p>
          </li>
 
@@ -52,7 +55,7 @@
     </div>
 
     <div class="headerLogin ">
-        <li class=""><a href="?signUp"><img src="img/profle.png" width="40"  height="40" alt="login"><p>sign</p> </a>    </li>
+        <li class=""><a href="?signIn"><img src="img/profle.png" width="40"  height="40" alt="login"><p>sign</p> </a>    </li>
         <li class=""><a href="#"><img src="img/frames.png" width="40"  height="40" alt="login"><p>orders</p> </a>  </li>
         <li class=""><a href="#"><img src="img/heart.png" width="40"  height="40" alt="login"><p>favorites</p> </a> </li>
         <li class=""><a href="#"><img src="img/empty.png" width="40"  height="40" alt="login"><p>basket</p> </a>   </li>

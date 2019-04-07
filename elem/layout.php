@@ -31,13 +31,26 @@
 
 </header>
 
-<main>
+<contentInfo >
     <?php
     if (isset($_GET['signUp'])){
         $content = require('elem/formSignUp.php');
+
+
+    }
+    if (isset ($_GET['signUpOk'])){
+
+        $content = require ('elem/SignUpOk.php');
+    }
+
+    if (isset ($_GET['signIn'])){
+
+        $content = require ('elem/signIn.php');
     }?>
 
-    </main>
+
+
+</contentInfo>
 
 </body>
 

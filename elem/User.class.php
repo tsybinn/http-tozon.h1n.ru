@@ -58,6 +58,7 @@ class User implements Iuser
         $date = time();
         $status = 0;
 
+
 //        $sql = "INSERT INTO users (login,email,password,date,status) VALUES (
 //                '$login',
 //                '$email',
@@ -77,6 +78,7 @@ class User implements Iuser
                 $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
                 $user = $this->db->query($sql);
                 $userCount = $user->rowCount();
+
 
             } catch (PDOException $e) {
                 echo 'Error : ' . $e->getMessage();
@@ -102,6 +104,26 @@ class User implements Iuser
         }
     }
 
+    function singIn($login,$password){
+        try {
+            $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
+            $stm = $this->db->prepare($sql);
+            $stm->execute();
+            $user = $stm->fetch(PDO::FETCH_ASSOC);
+            //var_dump($user);
+            $_SESSION['auth'] = true;
+            $_SESSION['login'] = $user['login'];
+            return $user;
+        } catch (PDOException $e) {
+            echo 'Error : ' . $e->getMessage();
+            exit();
+        }
+
+    }
+
+
+
+
 
     public function clear($value)
     {
@@ -114,6 +136,8 @@ class User implements Iuser
 
         return $value;
     }
+
+
 
 
     public function clearInt($data)

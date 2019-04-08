@@ -29,17 +29,22 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
     $password = $user->clear($_POST['password']);
     $confirm = $user->clear($_POST['confirm']);
 
+    if (preg_match
+        ("#^[0-9-a-zA-Z-.]#",$login) == false){
+        $errorL = 'errorL';
+        //echo  'only latins sumbol';
+        $errorlogin =  ' input login only latins sumbol';
+    }
     if(empty($login)){
 
         $errorL = 'errorL';
         $errorlogin =  'input login';
             }
 
-    if (preg_match
-        ("#^[0-9-a-zA-Z-.]#",$login) == false){
+    if (4 > strlen($login) or
+        strlen($login) > 10){
         $errorL = 'errorL';
-        //echo  'only latins sumbol';
-        $errorlogin =  ' input login only latins sumbol';
+        $errorlogin = 'input 4< login < 10';
     }
 
     if(empty($password)){
@@ -47,21 +52,23 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
         $errorP = 'errorP';
         $errorPassword =  'input password';
 
-    } if(empty($email)){
-
-        $errorE = 'errorE';
-        $errorEmail =  'input email';
-
     }
 
+    if(empty($email)){
+        $errorE = 'errorE';
+        $errorEmail =  'input email';
+    }
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+        $error = "class=\"errorm\"";
+        $errorEmail = "input correct email";
+    }
     if ( $password !== $confirm){
         $errorC = "errorC";
         $errorPassword = " password do not match ";
-
         $password =  md5( $_POST['password']);
-
     }
 
+        $password = md5($password);
 
     if (empty($errorC) and empty($errorL) and empty ($errorP) and empty($errorE)){
 
@@ -75,19 +82,6 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
 
         header("Location: index.php?signUpOk");
     }
-
-
-
-
-
-
-
-
-
-
-     //echo $row_count;
-
-
 
 }
 

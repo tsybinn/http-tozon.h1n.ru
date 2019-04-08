@@ -4,37 +4,38 @@ $errorL = "";
 $errorP = "";
 $errorlogin = "";
 $errorPassword = "";
-
-
 //$error = [];
 if (isset($_SERVER['REQUEST_METHOD']) == "POST" and  isset($_POST['submitIn'])){
 
-    $login = $_POST['login'];
-    $password = $_POST['password'];
+    $login = $user->clear($_POST['login']) ;
+    $password = $user->clear($_POST['password']);
 
     if(empty($login)){
         $errorL = 'errorL';
         $errorlogin =  ' input login';
 
-}
+    }
 
     if(empty($password)){
         $errorP = 'errorP';
         $errorPassword =  ' input password';
+    }
+        if(!empty($login)) {
+            if ($user->singIn($login, $password) == true) {
+                header("Location: index.php");
+            } else {
+                $errorL = 'errorL';
+                $errorlogin = 'login unknow';
+            }
+
+        }
+
+
+
 
 
 }
 
-
-       // $error ['input'][] .=  'input login2';
-       //var_dump($error);
-       //echo  $error['Input'][1];
-
-
-
-
-
-}
 
 
 ?>
@@ -44,7 +45,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == "POST" and  isset($_POST['submitIn'])){
         <h3>Вход</h3>
         <div class="login">
             <p>login: <span class="inputEr"> <?=$errorlogin?></span></p>
-            <input class="<?=$errorL?>"   type="login" name="login" value="<?php  if(isset($_POST['submitReg']))
+            <input class="<?=$errorL?>"   type="login" name="login" value="<?php  if(isset($_POST['singInSubmit']))
                 echo $login;?>" placeholder="">
 
         </div>
@@ -68,7 +69,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == "POST" and  isset($_POST['submitIn'])){
 
 
 
-    </fo
+    </form>
 </div>
 
 

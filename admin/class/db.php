@@ -20,7 +20,7 @@ class Db{
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //$sql = "SELECT * FROM msgs WHERE name='vasy' AND password=555";
             // $db->query($sql);
-            echo "db connect";
+            //echo "db connect";
 
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -90,7 +90,7 @@ class Db{
 
         try{
 
-            $sql = "SELECT  id,category,description,price,photoUrl  FROM $table" ;
+            $sql = "SELECT  id,category,description,price,photoUrl,date  FROM $table" ;
             $stmt = $this->db->query($sql);
              return $stmt->fetchall(PDO::FETCH_ASSOC);
 
@@ -111,6 +111,27 @@ class Db{
 
     return $value;
 }
+
+    public function update($table,$id,$category,$description,$price,$photoUrl){
+        $date = time();
+        try {
+            $sql = "UPDATE  $table SET category=?,description=?,price=?,photoUrl=?,date=? WHERE id =$id";
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute(array(
+                $category,
+                $description,
+                $price,
+                $photoUrl,
+                $date
+            ));
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+
+        }
+
 
 
 }

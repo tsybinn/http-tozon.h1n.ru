@@ -428,8 +428,9 @@ template {
 
 .wrappleSee{
     width:100%;
-    margin-left: 10px;
+    #margin-left: 10px;
     display:flex;
+    justify-content: space-evenly;
     flex-wrap: wrap
 
 }
@@ -443,8 +444,20 @@ template {
 }
 
 .seePrise{
-    padding-left:5px;
+
+    display:flex;
+    #border:1px solid red;
+    width:100%;
+    justify-content:space-around;
+    #padding-left:5px;
     color: #ff8051;
+}
+.date{
+    margin-top:-3px;
+    color: #6f6032;
+
+    font-size: 12px;
+
 }
 .seeDiscription{
     width:90%;
@@ -454,4 +467,27 @@ template {
 .control{
     display:flex;
     justify-content:space-around;
+}
+
+
+/*wrappleUpdate*/
+
+.wrappleUpdate{
+
+    display: flex;
+    margin-top:20px;
+
+
+}
+
+.updateProducts{
+    width:400px;
+
+    margin-left:30px;
+    border:1px solid black;
+}
+
+.updateSelect{
+
+    width:100%;
 }

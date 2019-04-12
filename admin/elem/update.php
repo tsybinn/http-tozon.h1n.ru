@@ -19,15 +19,29 @@ $description = $row['description'];
 
    //var_dump($row);
 
+$selectPh = "";
+ $selectP = "";
+ $selectC = "";
+ $selectB = "";
 
-if($table = 'phone'){
-    $selectP = 'selected';
-
-}
+ switch ($table){
+     case "phones":
+         $selectPh = "selected";
+         break;
+     case "books":
+         $selectB = "selected";
+         break;
+         case "products":
+             $selectP = "selected";
+         break ;
+     case "clothe":
+         $selectC = "selected";
+         break;
+ }
 
 if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct'])){
 
-    $table = $_SESSION['table'];
+    //$table = $_SESSION['table'];
     $category = $db->clear($_POST['category']);
     $description = $db->clear($_POST['description']);
     $price = $db->clear($_POST['price']);
@@ -100,10 +114,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct']))
             <select class=\" updateSelect $errorC \"  name=\"category\">
                 <p> $errorCategory </p>
                 <option value=\"0\">Выберите категорию</option>
-                <option $selectP value=\"1\">Телефоны</option>
-                <option value=\"2\">Продукты</option>
-                <option value=\"3\">Одежда</option>
-                <option value=\"4\">Книги</option>
+                <option $selectPh value=\"1\">Телефоны</option>
+                <option $selectP value=\"2\">Продукты</option>
+                <option $selectC value=\"3\">Одежда</option>
+                <option $selectB value=\"4\">Книги</option>
             </select>
 
             <label><p>Описание товара: $errorDescription</p> </label>

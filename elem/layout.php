@@ -8,7 +8,7 @@
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Chewy|Love+Ya+Like+A+Sister|Russo+One" rel="stylesheet">
 
@@ -31,28 +31,13 @@
 
 </header>
 
-<contentInfo >
-    <?php
-    if (isset($_GET['signUp'])){
-        $content = require('elem/formSignUp.php');
+<div class="content">
+    <?php include "elem/content.php" ?>
+
+</div>
 
 
-    }
-    if (isset ($_GET['signUpOk'])){
-
-        $content = require ('elem/SignUpOk.php');
-    }
-
-    if (isset ($_GET['signIn'])){
-
-        $content = require ('elem/signIn.php');
-    }?>
-
-
-
-
-</contentInfo>
-
+<footer><?php include"elem/footer.php"?></footer>
 </body>
 
 

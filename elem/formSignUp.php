@@ -1,16 +1,4 @@
 <?php
-//require_once "../Interface/Iuser.php";
-//
-//
-// class User implements Iuser {
-//
-//public function singUp()
-//{
-//
-//}
-//
-// }
-
 
 $title = "SING UP";
 $error = '';

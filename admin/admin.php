@@ -16,6 +16,12 @@ if (isset($_GET['show'])){
         case "addProducts":
             $title = "AddProduct";
             break;
+            case "products":
+            $title = "Products";
+            break ;
+        case "clothe":
+            $title = "Clothe";
+            break;
              }
     }else {
         $title = "AdminPhp";

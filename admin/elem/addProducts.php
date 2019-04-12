@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitAddProduct'])) {
 
             $_SESSION['headerInfo'] = 'Вы добавили новый товар: ' . $row['description'];
 
-            header("location: admin.php?addProduct");
+            header("location: admin.php?show=addProducts");
 
         }
 

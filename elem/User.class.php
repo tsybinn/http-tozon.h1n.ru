@@ -30,49 +30,18 @@ class User implements Iuser
             echo "db connect";
 
 
-//    $sql = "SELECT * FROM msgs WHERE name='vasy' AND password=555";
-//    $stmt = $db->query($sql);
-//    $row_count = $stmt->rowCount();
-            //echo $row_count.' rows selected';
-            //Установка fetch mode
-            //$row = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-            //var_dump($row);
-            // $sql = '';
-            //$db->exec($sql);
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
 
     }
 
-
-    /**
-     * @param $login
-     * @param $email
-     * @param $password
-     */
     public function singUp($login, $email, $password)
     {
 
         $date = time();
         $status = 0;
 
-
-//        $sql = "INSERT INTO users (login,email,password,date,status) VALUES (
-//                '$login',
-//                '$email',
-//                '$password',
-//                 $date,
-//                 $date
-//                      )";
-
-
-
-
-            //$sql = "SELECT * FROM msgs WHERE name='vasy' AND password=555";
-            // $db->query($sql);
-            //$row_count = $stmt->rowCount();
 
             try {
                 $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
@@ -84,7 +53,6 @@ class User implements Iuser
                 echo 'Error : ' . $e->getMessage();
                 exit();
             }
-
 
             if ( $userCount == 0){
 
@@ -98,12 +66,9 @@ class User implements Iuser
                         $status));
                     }catch (PDOException $e) {
                     echo 'Error : ' . $e->getMessage();
-
-
         }
         }
     }
-
     function singIn($login,$password){
         try {
             $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
@@ -118,12 +83,7 @@ class User implements Iuser
             echo 'Error : ' . $e->getMessage();
             exit();
         }
-
     }
-
-
-
-
 
     public function clear($value)
     {
@@ -136,9 +96,6 @@ class User implements Iuser
 
         return $value;
     }
-
-
-
 
     public function clearInt($data)
     {

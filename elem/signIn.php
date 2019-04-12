@@ -4,7 +4,7 @@ $errorL = "";
 $errorP = "";
 $errorlogin = "";
 $errorPassword = "";
-//$error = [];
+
 if (isset($_SERVER['REQUEST_METHOD']) == "POST" and  isset($_POST['submitIn'])){
 
     $login = $user->clear($_POST['login']) ;

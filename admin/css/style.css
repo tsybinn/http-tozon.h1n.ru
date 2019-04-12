@@ -351,10 +351,16 @@ template {
 
 
  }
+ .headerSeeInfo{
+     background: rgba(167, 178, 168, 0.69);
+ }
 
 .addProducts{width:400px;
-margin-top:30px;
-    margin-left:30px;}
+    margin-top:30px;
+    margin-left:30px;
+    border:1px solid black;
+
+}
 
 .addProducts form{
    display:flex;
@@ -363,24 +369,89 @@ margin-top:30px;
 }
 
 .addProducts label{
-    width:200px;
-    padding-bottom:10px;
-    font-size: 18px;
+    width:300px;
+    #padding-bottom:10px;
+    font-size: 14px;
     margin-left: 10px;
 
+    margin: 10px;
+
+}
+.addProducts input{
+
+
 }
 
-.submitAddProduct{
-        width:100px;
-    margin: auto 30%;
-    margin-top:10px;
-}
+
 
 .textareaAddProduct{
-    width:250px;
+    width:300px;
     height: 150px;
+    margin: auto 10%;
 }
 .priceProductAdd{
 
-    width:100px;
+    width:60px;
+}
+
+.addFoto{
+    #float:right;
+}
+.submitAddProduct{
+    width:80%;
+    margin-left:30px;
+    margin-top:20px;
+    height:30px;
+}
+
+.fotoPrice{
+    margin-top: 10px;
+    margin-left:10px;
+
+}
+.errorC{
+
+    border:1px solid red;
+
+    }
+
+.errorD{
+
+    border:1px solid red;
+
+    }
+.errorP{
+
+    border:1px solid red;
+
+    }
+
+.wrappleSee{
+    width:100%;
+    margin-left: 10px;
+    display:flex;
+    flex-wrap: wrap
+
+}
+.seePhones{
+    width:205px;
+    border:1px solid rgb(224, 221, 221);
+    margin:1px;
+;
+
+
+}
+
+.seePrise{
+    padding-left:5px;
+    color: #ff8051;
+}
+.seeDiscription{
+    width:90%;
+    margin: auto 20%;
+}
+
+.control{
+    display:flex;
+    justify-content:space-around;
 }

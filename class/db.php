@@ -3,8 +3,6 @@
 
 class Db{
 
-
-
     function __construct()
     {
 
@@ -91,6 +89,22 @@ class Db{
         try{
 
             $sql = "SELECT  id,category,description,price,photoUrl,date  FROM $table" ;
+            $stmt = $this->db->query($sql);
+             return $stmt->fetchall(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            echo 'Error : ' . $e->getMessage();
+
+            }
+    }    public function selectUser($table){
+
+        try{
+
+            $sql = "SELECT $table.id, email,login, password, date, userstatus.statusName FROM $table
+              INNER JOIN  userstatus
+            ON  users.status = userstatus.id";
+            
+
             $stmt = $this->db->query($sql);
              return $stmt->fetchall(PDO::FETCH_ASSOC);
 

@@ -27,17 +27,17 @@
 
 <header>
 
-<?php include "header.php";?>
+<?php include "page/header.php";?>
 
 </header>
 
 <div class="content">
-    <?php include "elem/content.php" ?>
+    <?php include "page/content.php" ?>
 
 </div>
 
 
-<footer><?php include"elem/footer.php"?></footer>
+<footer><?php include "page/footer.php" ?></footer>
 </body>
 
 

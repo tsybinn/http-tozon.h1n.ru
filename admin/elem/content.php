@@ -22,6 +22,11 @@ if (isset($_GET['show'])){
                          $_SESSION['table'] = 'clothe';
                     include "elem/seeCategory.php";
                 break;
+                 case "users":
+                         $_SESSION['table'] = 'users';
+                    include "elem/showUsers.php";
+                break;
+
                                 }
                 }
 

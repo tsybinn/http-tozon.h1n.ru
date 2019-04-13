@@ -11,6 +11,6 @@
         include "elem/content.php";
 
     ?>  </content>
-<footer><?php include "elem/footer.php"?></footer>
+<footer><?php include "elem/footer.php" ?></footer>
 </body>
 </html>

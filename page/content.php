@@ -7,10 +7,10 @@ if (isset($_GET['show'])){
             break;
         case "signIn":
             $_SESSION['table'] = 'books';
-            require ('elem/signIn.php');
+            require('elem/signIn.php');
             break;
         case "signUpOk":
-            require ('elem/SignUpOk.php');
+            require('elem/signUpOk.php');
             break;
     }
 }

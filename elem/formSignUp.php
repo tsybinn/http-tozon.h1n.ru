@@ -66,18 +66,14 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
             $errorlogin =  'user with such login exists';
         } else
 
-       // echo "ok";
 
-        header("Location: index.php?signUpOk");
+
+        header("Location: index.php?show=signUpOk");
     }
 
 }
 
-
-
 ?>
-
-
 
 <div class="formRegister">
     <form   method="POST" action=""  novalidate>

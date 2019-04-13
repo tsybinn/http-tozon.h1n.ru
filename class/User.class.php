@@ -1,11 +1,5 @@
 <?php
-
-
-
 require_once "Interface/Iuser.php";
-
-
-
 class User implements Iuser
 {
      private $db = null;
@@ -23,12 +17,6 @@ class User implements Iuser
              $this->db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
             $this->db->exec("set names utf8");
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //$sql = "SELECT * FROM msgs WHERE name='vasy' AND password=555";
-            // $db->query($sql);
-
-
-            echo "db connect";
-
 
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -42,14 +30,11 @@ class User implements Iuser
         $date = time();
         $status = 0;
 
-
             try {
                 $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
                 $user = $this->db->query($sql);
                 $userCount = $user->rowCount();
-
-
-            } catch (PDOException $e) {
+        } catch (PDOException $e) {
                 echo 'Error : ' . $e->getMessage();
                 exit();
             }
@@ -75,7 +60,7 @@ class User implements Iuser
             $stm = $this->db->prepare($sql);
             $stm->execute();
             $user = $stm->fetch(PDO::FETCH_ASSOC);
-            //var_dump($user);
+            var_dump($user);
             $_SESSION['auth'] = true;
             $_SESSION['login'] = $user['login'];
             return $user;

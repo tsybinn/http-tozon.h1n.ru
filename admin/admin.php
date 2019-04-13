@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "class/db.php";
+require_once "../class/db.php";
 $db = new Db;
 if (isset($_GET['show'])){
     switch  ($_GET['show']){
@@ -21,6 +21,9 @@ if (isset($_GET['show'])){
             break ;
         case "clothe":
             $title = "Clothe";
+            break;
+            case "users":
+            $title = "seeUsers";
             break;
              }
     }else {

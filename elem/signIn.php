@@ -7,7 +7,7 @@ $error = [
 if (isset($_SERVER['REQUEST_METHOD']) == "POST" and  isset($_POST['submitIn'])){
 
     $login = $user->clear($_POST['login']) ;
-    $password = $user->clear($_POST['password']);
+    $password = md5($user->clear($_POST['password'])) ;
 
     if(empty($login)) {
         $error['border']['login'] = 'errorL';
@@ -19,7 +19,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == "POST" and  isset($_POST['submitIn'])){
         $error['border']['password'] = 'errorP';
         $error ['write']['password'] = ' input password';
     }
-        if(!empty($login)) {
+        if(!empty($error)) {
             if ($user->singIn($login, $password) == true) {
                 header("Location: index.php");
             } else {

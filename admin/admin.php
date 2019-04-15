@@ -31,7 +31,7 @@ if (isset($_GET['show'])){
             }
 if (isset($_GET['update'])) {
     $title = "update";}
-include "elem/layout.php";
+include "page/layout.php";
 
 
 

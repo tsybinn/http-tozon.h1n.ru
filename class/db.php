@@ -83,26 +83,45 @@ class Db{
 
      }
 
-    public function select($table){
+    public function select($table,$from,$notePages){
 
 
-        try{
-
-            $sql = "SELECT  id,category,description,price,photoUrl,date  FROM $table" ;
+        try {
+            $sql = "SELECT * FROM $table";
             $stmt = $this->db->query($sql);
-             return $stmt->fetchall(PDO::FETCH_ASSOC);
-
+            $pageCount = $stmt->rowCount();
+            $sql = "SELECT * FROM $table ORDER BY id
+                LIMIT  $from,$notePages";
+            $stmt = $this->db->query($sql);
+            $a = $stmt->fetchall(PDO::FETCH_ASSOC);
+          return  $return = [ $a,$pageCount ];
         } catch (PDOException $e) {
             echo 'Error : ' . $e->getMessage();
 
-            }
-    }    public function selectUser($table){
+        }
+    }
+
+    public function selectSorting($table,$desc,$from,$notePages)
+    {
+        try {
+
+            $sql = "SELECT * FROM $table ORDER BY price $desc  LIMIT  $from,$notePages";
+            $stmt = $this->db->query($sql);
+            return $stmt->fetchall(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Error : ' . $e->getMessage();
+        }
+    }
+
+
+    public function selectUser($table)
+    {
 
         try{
 
             $sql = "SELECT $table.id, email,login, password, date, userstatus.statusName FROM $table
               INNER JOIN  userstatus
-            ON  users.status = userstatus.id";
+            ON  users.status = userstatus.id  ";
             
 
             $stmt = $this->db->query($sql);
@@ -145,7 +164,6 @@ class Db{
 
 
         }
-
 
 
 }

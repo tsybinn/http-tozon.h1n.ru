@@ -10,8 +10,6 @@ if (isset($_GET['show'])){
             require('elem/signIn.php');
             break;
         case "signUpOk":
-            require('elem/signUpOk.php');
-            break;
     }
 }
 

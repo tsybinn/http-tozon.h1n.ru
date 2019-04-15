@@ -1,7 +1,7 @@
 <?php
 
 
-$description="";
+$description = "";
 $price = "";
 $errorC = "";
 $errorD = "";
@@ -12,7 +12,7 @@ $errorDescription = "";
 $errorPrice = "";
 $errorFile = "";
 
-if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitAddProduct'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submitAddProduct'])) {
     $table = $_SESSION['table'];
     $category = $db->clear($_POST['category']);
     $description = $db->clear($_POST['description']);
@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitAddProduct'])) {
         $errorP = 'errorP';
         $errorPrice = "заполните цену";
     }
-     $type = $_FILES['photo']['type'];
-    if(  $type !== 'image/jpeg' ){
+    $type = $_FILES['photo']['type'];
+    if ($type !== 'image/jpeg') {
         echo $type;
 
 
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitAddProduct'])) {
         }
 
         if ($db->insert($table, $category, $description, $price, $uploadfile)) {
-           $row =  $db->lastId($table);
+            $row = $db->lastId($table);
 
             $_SESSION['headerInfo'] = 'Вы добавили новый товар: ' . $row['description'];
 
@@ -84,28 +84,28 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitAddProduct'])) {
 <div class="addProducts">
     <form action="" method="post" enctype="multipart/form-data">
 
-        <select class="<?=$errorC?>" value="2" name="category">
-            <p><?=$errorCategory?></p>
-                <option value="0">Выберите категорию</option>
-                <option value="1">Телефоны</option>
-                <option value="2">Продукты</option>
-                <option value="3">Одежда</option>
-                <option value="4">Книги</option>
-            </select>
+        <select class="<?= $errorC ?>" value="2" name="category">
+            <p><?= $errorCategory ?></p>
+            <option value="0">Выберите категорию</option>
+            <option value="1">Телефоны</option>
+            <option value="2">Продукты</option>
+            <option value="3">Одежда</option>
+            <option value="4">Книги</option>
+        </select>
 
-        <label>Описание товара:<?=$errorDescription?></label>
+        <label>Описание товара:<?= $errorDescription ?></label>
 
-            <textarea  class="textareaAddProduct <?=$errorD?>" name="description"
-                       value = ""> <?=$description?> </textarea>
-<div class="fotoPrice">
-        <lable>Цена товара:</lable>
+        <textarea class="textareaAddProduct <?= $errorD ?>" name="description"
+                  value=""> <?= $description ?> </textarea>
+        <div class="fotoPrice">
+            <lable>Цена товара:</lable>
 
-            <input class="priceProductAdd <?=$errorP?>"  type="text" name="price"
-                   value="<?=$price?>"<?=  $errorPrice?>>
+            <input class="priceProductAdd <?= $errorP ?>" type="text" name="price"
+                   value="<?= $price ?>"<?= $errorPrice ?>>
 
-        <p>фото товара: <?=$errorFile?>
-        <input class="addFoto" type="file" name="photo"></div>
-     <input class="submitAddProduct" type="submit" name="submitAddProduct"></p>
+            <p>фото товара: <?= $errorFile ?>
+                <input class="addFoto" type="file" name="photo"></div>
+        <input class="submitAddProduct" type="submit" name="submitAddProduct"></p>
 
 
     </form>

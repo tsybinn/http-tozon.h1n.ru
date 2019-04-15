@@ -22,11 +22,20 @@ html {
 
 body {
     margin: 0;
+    padding:0;
 }
 
 /**
  * Render the `main` element consistently in IE.
  */
+
+li, ul{
+
+    margin:0;
+    padding:0;
+    list-style: none;
+
+}
 
 main {
     display: block;
@@ -348,11 +357,23 @@ template {
     display: none;
 }
  body{
+     margin:2px;
+     min-width: 800px;
+     max-width: 1600px;
 
 
  }
+
+ header{
+     padding-bottom: 10px;
+ }
  .headerSeeInfo{
+
      background: rgba(167, 178, 168, 0.69);
+ }
+ .headerSeeInfo p {
+     padding:0;
+     margin:0;
  }
 
 .addProducts{width:400px;
@@ -370,7 +391,7 @@ template {
 
 .addProducts label{
     width:300px;
-    #padding-bottom:10px;
+    padding-bottom:10px;
     font-size: 14px;
     margin-left: 10px;
 
@@ -383,13 +404,14 @@ template {
 }
 
 .aNav{
-    padding-top: 5px;
-    padding-bottom: 15px;
+    #padding-top: 5px;
+    #padding-bottom: 0;
     display:flex;
     justify-content: space-around;
 }
 
 .aNav a{
+    padding:0;
     font-size: 18px;
     text-decoration: none;
 }
@@ -443,15 +465,16 @@ template {
 
 .wrappleSee{
     width:100%;
-    #margin-left: 10px;
+
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap
+
 
 }
 .seePhones{
     width:205px;
-    border:1px solid rgb(224, 221, 221);
+    border:2px solid rgb(224, 221, 221);
     margin:1px;
 ;
 
@@ -484,7 +507,6 @@ template {
     justify-content:space-around;
 }
 
-
 /*wrappleUpdate*/
 
 .wrappleUpdate{
@@ -512,3 +534,91 @@ table, th, td {
     border: 1px solid grey; /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
 
 }
+
+
+.sorting {
+    #position: absolute; /* Абсолютное позиционирование */
+    #bottom: 89%; /* Положение от нижнего края */
+    #right: 15px; /* Положение от правого края */
+    padding-bottom:10px;
+    width:210px;
+    #border: 1px solid red;
+    margin-left:20px;
+}
+
+.sorting  .second{
+    display: none;
+    position: absolute;
+    #top: 100%;
+}
+
+
+.sorting a {
+
+    font-size:12px;
+    font-family: "arial";
+    color:black;
+    text-align: center ;
+    text-decoration:none;
+}
+.sorting :hover .second{
+    display: block;
+}
+
+.second{
+    width:208px;
+    border-bottom: 1px solid #c3c3ca;
+    border-left: 1px solid #c3c3ca;
+    border-right: 1px solid #c3c3ca;
+}
+
+.second a:hover{
+    color:green;
+}
+
+.sortDefault{
+    border:1px solid #c3c3ca;
+}
+.sorting li a{
+    display:block;
+    padding:5px;
+
+}
+.cheap{
+    background: #ececf3;
+
+}
+.expensive{
+    background: white;
+}
+
+
+.activePagin{
+    font-size: 20px;
+}
+/*FOOTER*/
+
+.footerWrapper{
+    background: aliceblue;
+    display:flex;
+    justify-content: space-between;
+
+
+}
+
+.footerWrapper div{
+    padding: 30px;
+
+}
+.linktfooter{
+    color: #3d8b71;
+    font-size: 14px;
+}
+.footerWrapper p {
+
+    padding-top:10px;
+    color: #06044f;
+    font-size: 16px;
+
+}
+

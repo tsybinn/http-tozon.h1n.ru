@@ -52,7 +52,7 @@ a{
 
  header{
      padding-bottom: 20px;
-     border-bottom: 1px solid #F5F5F5;
+     border-bottom: 2px solid #F5F5F5;
 
  }
 .headerInfo{
@@ -357,6 +357,8 @@ text-decoration: none;
 
 
 }
+
+
 
 /*FOTER*/
 

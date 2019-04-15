@@ -5,12 +5,12 @@
     <title><?=$title?></title>
     <link rel="stylesheet" href="css/style.css"></head>
 <body>
-<header> <?php include "elem/header.php";?>  </header>
+<header> <?php include "page/header.php";?>  </header>
 <content> <?php
 
-        include "elem/content.php";
+        include "page/content.php";
 
     ?>  </content>
-<footer><?php include "elem/footer.php" ?></footer>
+<footer><?php include "page/footer.php" ?></footer>
 </body>
 </html>

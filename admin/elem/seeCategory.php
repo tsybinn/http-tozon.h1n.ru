@@ -4,8 +4,8 @@
                     href="#"><?php if (isset ($_SESSION['default'])) echo $_SESSION['default']; else echo "Категория по умолчанию" ?></a>
         </li>
         <ul class="second">
-            <li class="cheap"><a href="?sorting=cheap">Цена, сверху дешевле</a></li>
-            <li class="expensive"><a href="?sorting=expensive">Цена, сверху дороже</a></li>
+            <li class="cheap"><a href="?show=cheap">Цена, сверху дешевле</a></li>
+            <li class="expensive"><a href="?show=expensive">Цена, сверху дороже</a></li>
             <li class="cheap"><a href="#">Новинки</a></li>
 
         </ul>
@@ -13,47 +13,31 @@
 
 <?php
 
-$table = $_SESSION['table'];
+ if ($_GET['show'] != 'expensive' and $_GET['show'] != 'cheap' and !isset($_GET['pag'])  ){
+     $_SESSION['order'] = "";
+
+ }
+ echo $order = $_SESSION['order'];
+
+$notePages = 12;
+
 if (isset($_GET ['show'])) {
 
     if (isset($_GET['pag'])) {
-
         $page = $_GET['pag'];
     } else {
         $page = 1;
     }
-    $notePages = 12;
+
+    $table = $_SESSION['table'];
+    $next = $page + 1;
+    $prev = $page - 1;
     $from = ($page - 1) * $notePages;
-    $return = $db->select($table, $from, $notePages);
+    $return = $db->select($table, $from,$notePages,$order);
     $row = $return[0];
     $count = $return[1];
     $pageCount = ceil($count / $notePages);
-    $next = $page + 1;
-    $prev = $page - 1;
-}
-if (isset($_GET['sorting'])) {
-    if ($_GET['sorting'] == 'cheap') {
-        if (isset($_GET['pag'])) {
 
-            $page = $_GET['pag'];
-        } else {
-            $page = 1;}
-
-        $notePages = 8;
-        $from = ($page - 1) * $notePages;
-        $return = $db->select($table, $from, $notePages);
-        $row = $return[0];
-        $count = $return[1];
-        $pageCount = ceil($count / $notePages);
-        $next = $page + 1;
-        $prev = $page - 1;
-
-
-        $row = $db->selectSorting($table, "ASC",$from,$notePages);
-    }
-    if ($_GET['sorting'] == "expensive") {
-        $row = $db->selectSorting($table, "DESC");
-    }
 }
 $content = "";
 $content .= "<div class='wrappleSee'>";

@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 if (isset($_GET['show'])) {
@@ -31,6 +28,17 @@ if (isset($_GET['show'])) {
             break;
         case "users":
             $_SESSION['table'] = 'users';
+            include "elem/seeCategory.php";
+            break;
+        case "cheap":
+            $_SESSION['default'] = 'Цена сверху дешевле';
+            $_SESSION['order'] = "ORDER BY price ";
+            include "elem/seeCategory.php";
+            break;
+        case "expensive":
+            $_SESSION['order'] = "ORDER BY price DESC";
+            $_SESSION['default'] = 'Цена сверху дешевле';
+
             include "elem/seeCategory.php";
             break;
 

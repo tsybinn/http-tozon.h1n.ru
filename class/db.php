@@ -83,14 +83,14 @@ class Db{
 
      }
 
-    public function select($table,$from,$notePages){
+    public function select($table,$from,$notePages,$order){
 
 
         try {
             $sql = "SELECT * FROM $table";
             $stmt = $this->db->query($sql);
             $pageCount = $stmt->rowCount();
-            $sql = "SELECT * FROM $table ORDER BY id
+            $sql = "SELECT * FROM $table $order
                 LIMIT  $from,$notePages";
             $stmt = $this->db->query($sql);
             $a = $stmt->fetchall(PDO::FETCH_ASSOC);

@@ -30,7 +30,10 @@
 <?php include "page/header.php";?>
 
 </header>
+<div class="advertising">
 
+  <?php include "page/advertising.php";?>
+</div>
 <div class="content">
     <?php include "page/content.php" ?>
 

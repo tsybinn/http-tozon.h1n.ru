@@ -2,8 +2,8 @@
 session_start();
 require_once "../class/db.php";
 $db = new Db;
-if (isset($_GET['show'])){
-    switch  ($_GET['show']){
+if (isset($_GET['show'])) {
+    switch ($_GET['show']) {
         case "phones":
             $title = "Phones";
             break;
@@ -16,21 +16,29 @@ if (isset($_GET['show'])){
         case "addProducts":
             $title = "AddProduct";
             break;
-            case "products":
+        case "products":
             $title = "Products";
-            break ;
+            break;
         case "clothe":
             $title = "Clothe";
             break;
-            case "users":
+        case "users":
             $title = "seeUsers";
             break;
-             }
-    }else {
-        $title = "AdminPhp";
-            }
+        case "cheap":
+            $title = "Cheap";
+            break;
+        case "expensive":
+            $title = "Expensive";
+            break;
+
+    }
+} else {
+    $title = "AdminPhp";
+}
 if (isset($_GET['update'])) {
-    $title = "update";}
+    $title = "update";
+}
 include "page/layout.php";
 
 

@@ -22,7 +22,7 @@ if (isset($_GET ['show'])) {
     } else {
         $page = 1;
     }
-    $notePages = 8;
+    $notePages = 12;
     $from = ($page - 1) * $notePages;
     $return = $db->select($table, $from, $notePages);
     $row = $return[0];
@@ -76,7 +76,7 @@ $content .= "</div>";
 $content .= "<nav class=\"pagination\">";
 if ($page != 1) {
 
-    $content .= "<a href=\"?show=$table&pag=$prev\"><<</a>";
+    $content .= "<a href=\"?show=$table&pag=$prev\"><<  </a>";
 }
 for ($i = 1; $i <= $pageCount; $i++) {
 
@@ -90,7 +90,7 @@ for ($i = 1; $i <= $pageCount; $i++) {
 }
 $class = "";
 if ($page != $pageCount) {
-    $content .= "<a  href=\"?show=$table&pag=$next\">>></a>";
+    $content .= "<a  href=\"?show=$table&pag=$next\">  >></a>";
 }
 $content .= "</nav>";
 echo $content;

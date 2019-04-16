@@ -5,12 +5,14 @@
     <title><?=$title?></title>
     <link rel="stylesheet" href="css/style.css"></head>
 <body>
+
 <header> <?php include "page/header.php";?>  </header>
-<content> <?php
+<div class="content"> <?php
 
         include "page/content.php";
 
-    ?>  </content>
+    ?>  </div>
+
 <footer><?php include "page/footer.php" ?></footer>
 </body>
 </html>

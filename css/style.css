@@ -1,70 +1,73 @@
 
-
-
-*{
+* {
     margin: 0;
     padding: 0;
     /*font-family: 'Russo One', sans-serif;*/
 
 }
- li {
-     list-style-type: none; /* Убираем маркеры */
- }
- ul {
-     margin-left: 0; /* Отступ слева в браузере IE и Opera */
-     padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
- }
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
 
 
+p {
 
-p{
-
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 
 }
 
 
-a:visited{
+a:visited {
     color: #808d9a;
 }
 
 
+body {
 
-body{
-
-    min-width: 1000px;
+    min-width: 800px;
 
 
 }
-.html{
-    position:absolute;
+
+html {
+    width:100%;
+    position: absolute;
     min-height: 100%;
 }
 
-contentInfo{
+contentInfo {
 
-  width:100%;
-}
-.border{
-
-    border:2px solid green;
+    width: 100%;
 }
 
+.border {
 
-a{
+    border: 2px solid green;
+}
+
+
+a {
     text-decoration: none;
 }
 
 
 /*header*/
 
- header{
-     padding-bottom: 5px;
-     border-bottom: 1px solid #c9d3d8;
+header {
 
- }
-.headerInfo{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c9d3d8;
+
+}
+
+.headerInfo {
     #border: 1px solid red;
     background: #f8f8f8;
 
@@ -73,346 +76,484 @@ a{
 
 .linkInfoNav:hover {
 
-text-decoration: none;
+    text-decoration: none;
     color: #ff8400;
 
 }
-.ulInfoNavLogin{
+
+.ulInfoNavLogin {
 
     font-size: 16px;
-    color:  blue;
+    color: blue;
 }
 
- .label a{
+.label a {
 
 
-     font-family: 'Love Ya Like A Sister', cursive;
-     font-size: 50px;
-     color: #0069ff;
-     decoration:none;
- }
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 50px;
+    color: #0069ff;
+    decoration: none;
+}
 
 .ulInfoNav {
 
 
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     font-size: 13px;
     /*flex-basis:auto auto auto 50%;*/
 
 
 }
- .ulInfoNav p{
-     margin-top:3px;
 
- }
+.ulInfoNav p {
+    margin-top: 3px;
 
- .ulInfoNav img{
+}
 
-
- }
-
-
-.ulInfoNav{
+.ulInfoNav img {
 
 
 }
-.ulInfoNavLocal{
 
 
-    font-size:18px;
+.ulInfoNav {
+
+
+}
+
+.ulInfoNavLocal {
+
+
+    font-size: 18px;
     font-weight: bolder;
 }
 
 
-.ulInfoNavCon{
+.ulInfoNavCon {
 
-    display:flex;
+    display: flex;
 
 
     box-sizing: border-box;
     color: dimgrey;
     margin-left: 200px;
 }
+
 .ulInfoNavCon p {
     padding-left: 10px;
-   font-size: 16px;
+    font-size: 16px;
 }
 
- /*headerSearch*/
-.headerSearch{
+/*headerSearch*/
+.headerSearch {
     display: flex;
 
 }
 
-.search{
+.search {
 
 
     margin: auto 0;
-    margin-left:2%;
+    margin-left: 2%;
 
     flex-basis: 60%;
     box-sizing: border-box;
 
 }
 
-.searchString{
+.searchString {
 
     vertical-align: middle;
     padding-left: 20px;
-    border:2px solid blue;
+    border: 2px solid blue;
     border-radius: 5px;
-    width:90%;
+    width: 90%;
     height: 35px;
 }
 
 .searchSubmit {
-    width:  50px;
+    width: 50px;
     height: 50px;
 
-    padding:0;
+    padding: 0;
     border: 0;
-    background: transparent url('../img/search.jpg') no-repeat ;
-    background-size: cover;
-;
+    background: transparent url('../img/search.jpg') no-repeat;
+    background-size: cover;;
     text-indent: -1000em;
     cursor: pointer;
     cursor: hand;
 }
-.headerSearch{
 
-    margin-top:0;
+.headerSearch {
 
-    display:flex;
-    justify-content:space-between
+    margin-top: 0;
+
+    display: flex;
+    justify-content: space-between
 }
 
 
+.headerLogin {
 
-
-.headerLogin{
-
-    margin-top:10px;
-    display:flex;
-    justify-content:space-between;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
     flex-basis: 30%;
     box-sizing: border-box;
-    margin-right:10px;
+    margin-right: 10px;
 
 }
 
-.headerLogin li{
-  width:20%;
+.headerLogin li {
+    width: 20%;
     opacity: 0.3;
 
     text-align: center;
 
 
+}
+
+.headerLogin li:hover {
+
+    #background: #F5F5F5;
+    color: #ff8400;
+    opacity: 1;
+
+}
+
+.headerLogin a:hover {
+
+    text-decoration: none;
+    color: #ff8400;
 
 
 }
 
- .headerLogin li:hover{
+.label {
+    margin-left: 20px;
 
-     #background: #F5F5F5;
-     color:#ff8400;
-     opacity: 1;
+}
 
- }
+.ulHeaderCategory {
+    display: flex;
+    justify-content: space-around;
 
- .headerLogin a:hover {
+}
 
-     text-decoration: none;
-     color:#ff8400;
-
-
- }
-
- .label {
-     margin-left:20px;
-
- }
-
- .ulHeaderCategory{
-     display:flex;
-     justify-content: space-around;
-
- }
 .ulHeaderCategory a:hover {
-    color:#ff8400;
+    color: #ff8400;
 
 }
 
 /*advertising*/
 
 
-.advertising{
-    margin-top:5px;
-    width:100%;
+.advertising {
+    margin-top: 5px;
+    width: 100%;
     #height: 40px;
 
 }
- /*formRegister*/
 
-.formRegister{
+/*formRegister*/
+
+.formRegister {
 
 
     background: #728FFF;
-    width:280px;
-    margin-top:20px;
+    width: 280px;
+    margin-top: 20px;
     margin: auto 50%;
-    border:3px solid #728FFF;
+    border: 3px solid #728FFF;
     border-radius: 20px;
 }
-.formRegister form{
+
+.formRegister form {
     margin: auto 15px;
 }
 
-.singUpSubmit{
+.singUpSubmit {
 
-    width:168px;
+    width: 168px;
 
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
- .formRegister input{
-     width: 250px;
-     height: 30px;
-
- }
-
- .formRegister h3{
-
-     margin: auto 28%;
- }
- .formRegister {
-
-   color:white;
- }
-
- .errorL{
-
-     border-color: #ff826f;
- }
- .errorP{
-
-     border-color: #ff826f;
- }.errorE{
-
-     border-color: #ff826f;
- }
-
-  .inputEr{
-      color: #ff5440;
-  }
-
-.signUpOk{
-    color:blue;
-    margin: auto 50%;
-    width:320px;
-
-}
-
-.imgOk{
-
-    margin: auto 30%;
-
-}
-
-.formsignIn{
-    width:280px;
-    background: #728FFF;
-    margin-top:20px;
-    margin: auto 50%;
-    border:3px solid #728FFF;
-    border-radius: 20px;
-}
-
-.formsignIn form{
-    margin: auto 15px;
-}
-
-.singInSubmit{
-
-    width:168px;
-
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-.singInSubmit:hover{
-
-    cursor: pointer;
-}
-
-.formsignIn input{
+.formRegister input {
     width: 250px;
     height: 30px;
 
 }
 
-.formsignIn h3{
+.formRegister h3 {
+
+    margin: auto 28%;
+}
+
+.formRegister {
+
+    color: white;
+}
+
+.errorL {
+
+    border-color: #ff826f;
+}
+
+.errorP {
+
+    border-color: #ff826f;
+}
+
+.errorE {
+
+    border-color: #ff826f;
+}
+
+.inputEr {
+    color: #ff5440;
+}
+
+.signUpOk {
+    color: blue;
+    margin: auto 50%;
+    width: 320px;
+
+}
+
+.imgOk {
+
+    margin: auto 30%;
+
+}
+
+.formsignIn {
+    width: 280px;
+    background: #728FFF;
+    margin-top: 20px;
+    margin: auto 50%;
+    border: 3px solid #728FFF;
+    border-radius: 20px;
+}
+
+.formsignIn form {
+    margin: auto 15px;
+}
+
+.singInSubmit {
+
+    width: 168px;
+
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.singInSubmit:hover {
+
+    cursor: pointer;
+}
+
+.formsignIn input {
+    width: 250px;
+    height: 30px;
+
+}
+
+.formsignIn h3 {
 
     margin: auto 35%;
 }
+
 .formsignIn {
 
-    color:white;
+    color: white;
 }
 
-.linksSignUp{
-    padding-top:10px;
-
-}
-.content{
-
-    width:100%;
-
-
-
-
+.linksSignUp {
+    padding-top: 10px;
 
 }
 
+/*CONTENT*/
 
+.content {
+    #width: 1000px;
+    margin:auto 10%;
+    margin-top:20px;
+    #padding-bottom: 160px;
+}
+
+/*pagination*/
+
+.activePagin{
+    color: #ff8190;
+    font-size: 18px;
+    text-decoration:none;
+}
+.pagination a {
+
+    font-size: 18px;
+    text-decoration:none;
+}.pagination a:hover {
+     color:blue;
+     font-size: 18px;
+     text-decoration:none;
+ }
+.pagination{
+
+    width:30%;
+    margin:auto 45%;
+    margin-top:15px;
+}
+
+/*sorting*/
+.sorting {
+    padding-bottom:10px;
+    width:210px;
+      margin-left:15px;
+}
+
+.sorting  .second{
+    display: none;
+    position: absolute;
+    #top: 100%;
+}
+
+
+.sorting a {
+    font-size:12px;
+    font-family: "arial";
+    color:black;
+    text-align: center ;
+    text-decoration:none;
+}
+.sorting :hover .second{
+    display: block;
+}
+
+.second{
+    width:208px;
+    border-bottom: 1px solid #c3c3ca;
+    border-left: 1px solid #c3c3ca;
+    border-right: 1px solid #c3c3ca;
+}
+
+.second a:hover{
+    color:green;
+}
+
+.sortDefault{
+    border:1px solid #c3c3ca;
+}
+.sorting li a{
+    display:block;
+    padding:5px;
+
+}
+.cheap{
+    background: #ececf3;
+
+}
+.expensive{
+    background: white;
+}
+
+
+.wrappleSee {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.seePhones {
+    width: 205px;
+    border: 2px solid rgb(224, 221, 221);
+    margin: 1px;;
+}
+
+.seePrise {
+    display: flex;
+    #border: 1px solid red;
+    width: 100%;
+    justify-content: space-around;
+    #padding-left: 5px;
+    color: #ff8051;
+}
+
+.date {
+    margin-top: -3px;
+    color: #6f6032;
+    font-size: 12px;
+}
+
+.seeDiscription {
+    width: 90%;
+    margin: auto 20%;
+}
 
 /*FOTER*/
 
 
-footer{
-    width:100%;
-    height: 100px;
- position:absolute;
-    bottom:0;
-
-
+footer {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
 }
-.footerWrapper{
+
+.footerWrapper {
     background: #e8f0f7;
-    display:flex;
+    display: flex;
     justify-content: space-between;
-
-
 }
 
-.footerWrapper div{
+.footerWrapper div {
     padding: 25px;
-
 }
-.linktfooter{
-color: #325fff;
+
+.linktfooter {
+    color: #325fff;
     font-size: 14px;
 }
-.linktfooter:visited{
 
-    color:#325FFF;
+.linktfooter:visited {
+    color: #325FFF;
 }
 
 .footerWrapper p {
-
-    padding-top:10px;
+    padding-top: 10px;
     color: #001a34;
     font-size: 16px;
+}
+
+
+.control{
+
+    display:flex;
+    justify-content: space-around;
 
 }
+
+.addBasket{
+    opacity: 0.6;
+}
+
+.addBasket:hover{
+    opacity: 1;
+
+
+    }
+.favorites{
+    opacity: 0.6;
+}
+
+.favorites:hover{
+    opacity: 1;
+
+
+    }

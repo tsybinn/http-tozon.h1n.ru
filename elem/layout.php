@@ -8,14 +8,14 @@
 
 ?>
 <!doctype html>
-<html lang="en" xmlns="">
+<html lang="en">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Chewy|Love+Ya+Like+A+Sister|Russo+One" rel="stylesheet">
 
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
     <!-- Bootstrap CSS -->
 
@@ -30,13 +30,13 @@
 <?php include "page/header.php";?>
 
 </header>
-<div class="advertising">
-
-  <?php include "page/advertising.php";?>
-</div>
 <div class="content">
     <?php include "page/content.php" ?>
 
+</div>
+<div class="advertising">
+
+    <?php include "page/advertising.php";?>
 </div>
 
 

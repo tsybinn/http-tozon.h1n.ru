@@ -11,6 +11,7 @@
         <a href="?show=clothe">посмотреть одежду</a>
         <a href="?show=products">посмотреть продукты</a>
         <a href="?show=users">посмотреть Users</a>
+        <a href="?show=sale">посмотреть Распродажи</a>
     </div>
 
 </div>

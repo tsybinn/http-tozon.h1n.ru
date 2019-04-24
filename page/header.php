@@ -62,12 +62,12 @@
 <div class="headerCategory ">
 
     <ul class="ulHeaderCategory">
-        <li><a class="linkHeadCategory " href="#">Все разделы</a></li>
-        <li><a class="linkHeadCategory " href="#">Все все акции</a></li>
-        <li><a class="linkHeadCategory " href="#">Телефоны</a></li>
-        <li><a class="linkHeadCategory " href="#">Книги</a></li>
-        <li><a class="linkHeadCategory " href="#">Одежда</a></li>
-        <li><a class="linkHeadCategory " href="#">Продукты</a></li>
+        <li><a class="linkHeadCategory " href="?show=">Все разделы</a></li>
+        <li><a class="linkHeadCategory " href="?show=sale">Скидки</a></li>
+        <li><a class="linkHeadCategory " href="?show=phones">Телефоны</a></li>
+        <li><a class="linkHeadCategory " href="?show=books">Книги</a></li>
+        <li><a class="linkHeadCategory " href="?show=clothe">Одежда</a></li>
+        <li><a class="linkHeadCategory " href="?show=products">Продукты</a></li>
 
 
     </ul>

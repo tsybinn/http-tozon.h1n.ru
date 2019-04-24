@@ -1,7 +1,7 @@
 <div class="sorting">
     <ul>
         <li class="sortDefault"><a
-                    href="#"><?php if (isset ($_SESSION['default'])) echo $_SESSION['default']; else echo "Категория по умолчанию" ?></a>
+                href="#"><?php if (isset ($_SESSION['default'])) echo $_SESSION['default']; else echo "Категория по умолчанию" ?></a>
         </li>
         <ul class="second">
             <li class="cheap"><a href="?show=cheap">Цена, сверху дешевле</a></li>
@@ -13,11 +13,11 @@
 
 <?php
 
- if ($_GET['show'] != 'expensive' and $_GET['show'] != 'cheap' and !isset($_GET['pag'])  ){
-     $_SESSION['order'] = "";
+if ($_GET['show'] != 'expensive' and $_GET['show'] != 'cheap' and !isset($_GET['pag'])  ){
+    $_SESSION['order'] = "";
 
- }
-  $order = $_SESSION['order'];
+}
+ $order = $_SESSION['order'];
 
 $notePages = 12;
 
@@ -46,12 +46,12 @@ foreach ($row as $elem) {
     $content .= " 
  
     <div class=\"seePhones\">
-    <div class=\"seePhoto\"><img src= \"$elem[photoUrl]\" width=\"200\"height=\"180\"> </div>
+    <div class=\"seePhoto\"><img src= \"admin/$elem[photoUrl]\" width=\"200\"height=\"180\"> </div>
     <div class=\"seePrise\"><p>$elem[price] 	&#x584;</p> <p class=\"date\">$date </p >   </div>
     <div class=\"seeDiscription\">$elem[description]</div>
     <div class='control'>
-        <div class='delete'><a href=\"?delete=$elem[id]\">delete</a></div>
-        <div class='update'><a href=\"?update=$elem[id]\">update</a></div>
+        <div class='addBasket'><a href=\"?addBasket=$elem[id]\"><img src=\"img/basket.png\" width=\"30\" height=\"30\" alt=\"login\"></a></div>
+        <div class='favorites'><a href=\"?favorites=$elem[id]\"><img src=\"img/heart.png\" width=\"30\" height=\"30\" alt=\"login\"></a></div>
     </div>
 
     </div>";

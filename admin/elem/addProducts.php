@@ -65,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submitAddProduct'])) 
             case 4:
                 $table = "books";
                 break;
+            case 5:
+                $table = "sale";
+                break;
         }
 
         if ($db->insert($table, $category, $description, $price, $uploadfile)) {
@@ -91,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submitAddProduct'])) 
             <option value="2">Продукты</option>
             <option value="3">Одежда</option>
             <option value="4">Книги</option>
+            <option value="5">Распродажа</option>
         </select>
 
         <label>Описание товара:<?= $errorDescription ?></label>

@@ -31,6 +31,9 @@ if (isset($_GET['show'])) {
         case "expensive":
             $title = "Expensive";
             break;
+            case "sale":
+            $title = "Распродажа";
+            break;
 
     }
 } else {

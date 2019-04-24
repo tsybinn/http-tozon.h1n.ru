@@ -1,5 +1,5 @@
 <?php
-$description="";
+$description = "";
 $price = "";
 $errorC = "";
 $errorD = "";
@@ -12,36 +12,39 @@ $errorFile = "";
 $table = $_SESSION['table'];
 $id = $_GET['update'];
 
-$row = $db->selectById($table,$id);
+$row = $db->selectById($table, $id);
 
 $price = $row['price'];
 $description = $row['description'];
 
-   //var_dump($row);
+//var_dump($row);
 
 $selectPh = "";
- $selectP = "";
- $selectC = "";
- $selectB = "";
+$selectP = "";
+$selectC = "";
+$selectB = "";
+$selectS = "";
 
- switch ($table){
-     case "phones":
-         $selectPh = "selected";
-         break;
-     case "books":
-         $selectB = "selected";
-         break;
-         case "products":
-             $selectP = "selected";
-         break ;
-     case "clothe":
-         $selectC = "selected";
-         break;
- }
+switch ($table) {
+    case "phones":
+        $selectPh = "selected";
+        break;
+    case "books":
+        $selectB = "selected";
+        break;
+    case "products":
+        $selectP = "selected";
+        break;
+    case "clothe":
+        $selectC = "selected";
+        break;
+    case "sale":
+        $selectS = "selected";
+        break;
+}
 
-if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct'])){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    //$table = $_SESSION['table'];
     $category = $db->clear($_POST['category']);
     $description = $db->clear($_POST['description']);
     $price = $db->clear($_POST['price']);
@@ -62,18 +65,16 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct']))
     }
 
 
-
-
     if (empty($errorC) and empty($errorD) and empty($errorP) and empty($errorF)) {
 
-        if (isset ($_FILES['photo']['type'])){
+        if (isset ($_FILES['photo']['type'])) {
             $type = $_FILES['photo']['type'];
-            if(  $type !== 'image/jpeg' ){
+            if ($type !== 'image/jpeg') {
                 echo $type;
                 $errorF = 'errorP';
                 $errorFile = "загрузите картинку в формате jpg";
 
-            }else{
+            } else {
                 $salt = mt_rand(1, 9000);
                 $name = $salt . $_FILES['photo']['name'];
                 $url = "img/";
@@ -82,17 +83,36 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct']))
                 move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadfile);
             }
         }
+        if (isset($_POST['submitUpdateProduct'])) {
 
-        $db->update($table,$id,$category,$description,$price,$uploadfile);
-        $_SESSION['headerInfo'] = 'Вы изменили  товар: ' . $row['description'];
+            $db->update($table, $id, $category, $description, $price, $uploadfile);
+            $_SESSION['headerInfo'] = 'Вы изменили  товар: ' . $row['description'];
 
-        header("location: admin.php?update=$id");
+            header("location: admin.php?update=$id");
+
+        }
+
+        if (isset($_POST['submitAddedSale'])) {
+            $db->delete($table, $id);
+            $table = 'sale';
+
+            if ($db->insert($table, $category, $description, $price, $uploadfile)) {
+                $row = $db->lastId($table);
+
+                $_SESSION['headerInfo'] = 'Вы добавили в распродажи  новый товар: ' . $row['description'];
+
+                header("location: admin.php?show=sale");
+            }
 
 
-}}
+        }
 
 
-    $content = "
+    }
+}
+
+
+$content = "
 
 <div class='wrappleUpdate'>
 
@@ -118,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct']))
                 <option $selectP value=\"2\">Продукты</option>
                 <option $selectC value=\"3\">Одежда</option>
                 <option $selectB value=\"4\">Книги</option>
+                <option $selectS value=\"5\">Распродажа</option>
             </select>
 
             <label><p>Описание товара: $errorDescription</p> </label>
@@ -125,16 +146,18 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitUpdateProduct']))
             <textarea class=\"textareaAddProduct  $errorD \" name=\"description\"
             value = \"\">  $description </textarea>
             <div class=\"fotoPrice\">
+             
             
                 <lable>Цена товара:</lable>
 
                 <input class=\"priceProductAdd = $errorP \" type=\"text\" name=\"price\"
                 value=\" $price \"  >$errorPrice
-                
+               
 
                 <p>фото товара:  $errorFile 
                  <div class=\"seePhoto\"><img src=\"$row[photoUrl]\"   width=\"200\"height=\"150\"></div>
                     <input class=\"addFoto\" type=\"file\" name=\"photo\"></div>
+                              <input class=\"submitAddProduct\" type=\"submit\" name=\"submitAddedSale\" value=\"добавить в распродажи\"> </p>
             <input class=\"submitAddProduct\" type=\"submit\" name=\"submitUpdateProduct\" value=\"Изменить\"> </p>
 
 

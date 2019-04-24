@@ -18,6 +18,10 @@ if (isset($_GET['show'])) {
             $_SESSION['table'] = 'products';
             include "elem/seeCategory.php";
             break;
+        case "sale":
+            $_SESSION['table'] = 'sale';
+            include "elem/seeCategory.php";
+            break;
         case "clothe":
             $_SESSION['table'] = 'clothe';
             include "elem/seeCategory.php";
@@ -37,7 +41,7 @@ if (isset($_GET['show'])) {
             break;
         case "expensive":
             $_SESSION['order'] = "ORDER BY price DESC";
-            $_SESSION['default'] = 'Цена сверху дешевле';
+            $_SESSION['default'] = 'Цена сверху дороже';
 
             include "elem/seeCategory.php";
             break;

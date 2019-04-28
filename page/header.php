@@ -15,14 +15,18 @@
             <li class="ulInfoNav"><a class="linkInfoNav" href="#">
                     <p> Условие оплаты</p></a></li>
             <li class="ulInfoNav"><a class="linkInfoNav" href="#">
-                   <p>Условие Возврата</p></a>
+                    <p>Условие Возврата</p></a>
             </li>
             <li class="ulInfoNav"><a class="linkInfoNav" href="#">
-                    <p><a href="admin/admin.php">admin login</a></a></p></a>
+                    <p><a class="linkAdmin" href="admin/admin.php">admin login</a></a></p></a>
             </li>
             <?php if (isset($_SESSION['auth'])) { ?>
                 <li class="ulInfoNavLogin">
-                <p>логин:<?= $_SESSION['login']; ?> <span>в корзине: 0 </span> <span><a href="?logout">  exit</a></span>
+                <p>логин:<?= $_SESSION['login']; ?> <span>в корзине:
+                        <?php if (isset($_SESSION['countCart'])){
+                            echo $_SESSION['countCart'] + 1;}
+                            else {echo "0";}?>
+                    </span> <span><a href="?logout">  exit</a></span>
                 </p>
                 </li><?php } ?>
             <li class="ulInfoNavCon"><img src="img/24.png" width="25" height="25">
@@ -61,15 +65,24 @@
 
 <div class="headerCategory ">
 
+
     <ul class="ulHeaderCategory">
-        <li><a class="linkHeadCategory " href="?show=">Все разделы</a></li>
-        <li><a class="linkHeadCategory " href="?show=sale">Скидки</a></li>
-        <li><a class="linkHeadCategory " href="?show=phones">Телефоны</a></li>
-        <li><a class="linkHeadCategory " href="?show=books">Книги</a></li>
-        <li><a class="linkHeadCategory " href="?show=clothe">Одежда</a></li>
-        <li><a class="linkHeadCategory " href="?show=products">Продукты</a></li>
+        <li class="section"><a href="#">Все разделы</a>
+
+            <ul class="gemor">
+                <li><a href="?show=sale">Скидки</a></li>
+                <li><a href="?show=phones">Телефоны</a></li>
+                <li><a href="?show=books">Книги</a></li>
+                <li><a href="?show=clothe">Одежда</a></li>
+                <li><a href="?show=products">Продукты</a></li>
+            </ul></li>
 
 
+        <li><a class="linkHeadCategory" href="?show=sale">Скидки</a></li>
+        <li><a class="linkHeadCategory" href="?show=phones">Телефоны</a></li>
+        <li><a class="linkHeadCategory" href="?show=books">Книги</a></li>
+        <li><a class="linkHeadCategory" href="?show=clothe">Одежда</a></li>
+        <li><a class="linkHeadCategory" href="?show=products">Продукты</a></li>
     </ul>
 </div>
 

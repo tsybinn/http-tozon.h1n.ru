@@ -28,7 +28,9 @@ a:visited {
     color: #808d9a;
 }
 
-
+a:active{
+    text-decoration: underline;
+}
 body {
 
     min-width: 800px;
@@ -54,6 +56,7 @@ contentInfo {
 
 
 a {
+    color: #808d9a;
     text-decoration: none;
 }
 
@@ -138,7 +141,7 @@ header {
 
     box-sizing: border-box;
     color: dimgrey;
-    margin-left: 200px;
+    #margin-left: 200px;
 }
 
 .ulInfoNavCon p {
@@ -274,6 +277,42 @@ header {
     margin: auto 15px;
 }
 
+
+.section a  {
+    color:black;
+
+
+}
+
+.gemor{
+    width:90px;
+
+    background-color: #f8f8f8;
+    padding-top:5px;
+    display: none;
+    position: absolute;
+
+
+}
+.gemor li{
+
+    padding-bottom:5px;
+    padding-left:10px;
+
+}
+.gemor a{
+
+    #color:red;
+    font-weight:10;
+}
+
+ .section:hover .gemor{
+
+     display: block;
+
+
+ }
+
 .singUpSubmit {
 
     width: 168px;
@@ -298,23 +337,14 @@ header {
     color: white;
 }
 
-.errorL {
 
-    border-color: #ff826f;
-}
-
-.errorP {
-
-    border-color: #ff826f;
-}
-
-.errorE {
-
-    border-color: #ff826f;
-}
 
 .inputEr {
     color: #ff5440;
+}
+
+.error{
+    border-color: #ff826f;
 }
 
 .signUpOk {
@@ -374,7 +404,10 @@ header {
 
 .linksSignUp {
     padding-top: 10px;
+}
 
+.linksSignUp a {
+    color:green;
 }
 
 /*CONTENT*/
@@ -388,15 +421,19 @@ header {
 
 /*pagination*/
 
-.activePagin{
+ .activePagin  {
+     border-bottom:2px solid red;
     color: #ff8190;
-    font-size: 18px;
+    font-size: 35px;
     text-decoration:none;
 }
 .pagination a {
 
     font-size: 18px;
-    text-decoration:none;
+    text-decoration-line: none;
+    padding-left:5px;
+
+
 }.pagination a:hover {
      color:blue;
      font-size: 18px;
@@ -558,3 +595,9 @@ footer {
 
 
     }
+
+.linkAdmin  {
+
+    color:red;
+    font-size: 20px;
+}

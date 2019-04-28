@@ -1,16 +1,15 @@
 <?php
 
 $title = "SING UP";
-$error = '';
-$errorL = "";
-$errorP = "";
-$errorE = "";
-$errorC= "";
-$errorlogin = '';
-$errorPassword = '';
-$errorConfirm = '';
-$errorEmail = '';
-if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
+
+$error = [
+    'write' => ['login' => '', 'password' => '', 'email' => '', 'confirm' => ''],
+    'border' => ['login' => '', 'password' => '', 'email' => '', 'confirm' => ''],
+
+
+];
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submitReg'])) {
 
     $login = $user->clear($_POST['login']);
     $email = $user->clear($_POST['email']);
@@ -18,91 +17,89 @@ if ($_SERVER['REQUEST_METHOD']=="POST" and isset($_POST['submitReg'])){
     $confirm = $user->clear($_POST['confirm']);
 
     if (preg_match
-        ("#^[0-9-a-zA-Z-.]#",$login) == false){
-        $errorL = 'errorL';
-        //echo  'only latins sumbol';
-        $errorlogin =  ' input login only latins sumbol';
+        ("#^[0-9-a-zA-Z-.]#", $login) == false) {
+        $error['border']['login'] = 'error';
+        $error['write']['login'] = ' input login only latins symbol';
     }
-    if(empty($login)){
+    if (empty($login)) {
 
-        $errorL = 'errorL';
-        $errorlogin =  'input login';
-            }
+        $error['border']['login'] = 'error';
+        $error['write']['login'] = 'input login';
+    }
 
     if (4 > strlen($login) or
-        strlen($login) > 10){
-        $errorL = 'errorL';
-        $errorlogin = 'input 4< login < 10';
+        strlen($login) > 10) {
+        $error['border']['login'] = 'error';
+        $error['write']['login'] = 'input 4< login < 10';
     }
 
-    if(empty($password)){
+    if (empty($password)) {
 
-        $errorP = 'errorP';
-        $errorPassword =  'input password';
+        $error['border']['password'] = 'error';
+        $error['write']['password'] = 'input password';
 
     }
 
-    if(empty($email)){
-        $errorE = 'errorE';
-        $errorEmail =  'input email';
+    if (empty($email)) {
+        $error['border']['email'] = 'error';
+        $error['write']['email'] = 'input email';
     }
-    if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
-        $error = "class=\"errorm\"";
-        $errorEmail = "input correct email";
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+        $error['border']['email'] = 'error';
+        $error['write']['email'] = "input correct email";
     }
-    if ( $password !== $confirm){
-        $errorC = "errorC";
-        $errorPassword = " password do not match ";
-        $password =  md5( $_POST['password']);
+    if ($password !== $confirm) {
+        $error['border']['confirm'] = 'error';
+        $error['write']['password'] = " password do not match ";
+        $password = md5($_POST['password']);
     }
 
-        $password = md5($password);
+    $password = md5($password);
+//var_dump($error);
+    if (!in_array ( 'error',$error['border']) ){
 
-    if (empty($errorC) and empty($errorL) and empty ($errorP) and empty($errorE)){
+        if ( $user->singUp($login, $email, $password)) {
 
-        if (!$user->singUp($login,$email,$password)) {
+            header("Location: index.php?show=signUpOk");
 
-            $errorL = 'errorL';
-            $errorlogin =  'user with such login exists';
         } else
+            $error['border']['login'] = 'error';
+        $error['write']['login']= 'user with such login exists';
 
-
-
-        header("Location: index.php?show=signUpOk");
-    }
+   }
 
 }
 
 ?>
 
 <div class="formRegister">
-    <form   method="POST" action=""  novalidate>
+    <form method="POST" action="" novalidate>
         <h3>Регистрация</h3>
         <div class="login">
-            <p>login: <span class="inputEr"> <?=$errorlogin?></span></p>
-                <input class="<?=$errorL?>"   type="login" name="login" value="<?php  if(isset($_POST['submitReg']))
-                    echo $login;?>" placeholder="">
+            <p>login: <span class="inputEr"> <?= $error['write']['login'] ?></span></p>
+            <input class="<?=$error['border']['login'] ?>" type="login" name="login" value="<?php if (isset($_POST['submitReg']))
+                echo $login; ?>" placeholder="">
 
         </div>
 
 
         <div class="email ">
-            <p>email: <span class="inputEr"><?=$errorEmail?></span> </p>
-            <input  class="<?=$errorE?>"  type="email" name="email"
-                    value="<?php  if(isset($_POST['submitReg'])) echo $email;?>" placeholder="">
+            <p>email: <span class="inputEr"><?= $error['write']['email'] ?></span></p>
+            <input class="<?= $error['border']['email'] ?>" type="email" name="email"
+                   value="<?php if (isset($_POST['submitReg'])) echo $email; ?>" placeholder="">
 
         </div>
 
 
         <div class="password">
-            <p>password:<span class="inputEr"><?=$errorPassword?></span></p>
-            <input class="<?=$errorP?>" type="password" name="password"  value="">
+            <p>password:<span class="inputEr"><?= $error['write']['password'] ?></span></p>
+            <input class="<?=$error['border']['password'] ?>" type="password" name="password" value="">
 
         </div>
         <div class="confirm">
-            <p>confirm:<span class="inputEr"> <?=$errorConfirm?></span></p>
-            <input class="<?=$errorC?>"  type="password" name="confirm"
-                    value="">
+            <p>confirm:<span class="inputEr"> <?= $error['write']['confirm'] ?></span></p>
+            <input class="<?= $error['border']['password'] ?>" type="password" name="confirm"
+                   value="">
 
 
             <div class="singUpSubmit">

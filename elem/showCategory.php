@@ -13,8 +13,12 @@
 
 <?php
 
+
+if(isset($_GET)){
 if ($_GET['show'] != 'expensive' and $_GET['show'] != 'cheap' and !isset($_GET['pag'])  ){
     $_SESSION['order'] = "";
+}
+
 
 }
  $order = $_SESSION['order'];
@@ -48,13 +52,15 @@ foreach ($row as $elem) {
     <div class=\"seePhones\">
     <div class=\"seePhoto\"><img src= \"admin/$elem[photoUrl]\" width=\"200\"height=\"180\"> </div>
     <div class=\"seePrise\"><p>$elem[price] 	&#x584;</p> <p class=\"date\">$date </p >   </div>
-    <div class=\"seeDiscription\">$elem[description]</div>
-    <div class='control'>
-        <div class='addBasket'><a href=\"?addBasket=$elem[id]\"><img src=\"img/basket.png\" width=\"30\" height=\"30\" alt=\"login\"></a></div>
-        <div class='favorites'><a href=\"?favorites=$elem[id]\"><img src=\"img/heart.png\" width=\"30\" height=\"30\" alt=\"login\"></a></div>
-    </div>
+    <div class=\"seeDiscription\">$elem[description]</div>";
 
+if (isset($_SESSION['auth'])){
+    $content .=" <div class='control'>
+        <div class='addBasket'><a href=\"?addCart=$elem[id]\"><img src=\"img/basket.png\" width=\"30\" height=\"30\" alt=\"login\"></a></div>
+        <div class='favorites'><a href=\"?favorites=$elem[id]\"><img src=\"img/heart.png\" width=\"30\" height=\"30\" alt=\"login\"></a></div>
     </div>";
+}
+    $content .= "</div>";
 }
 $content .= "</div>";
 $content .= "<nav class=\"pagination\">";

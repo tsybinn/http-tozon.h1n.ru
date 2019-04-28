@@ -7,10 +7,10 @@ class User implements Iuser
     function __construct()
     {
 
-        $host = "localHost";
+        $host = "81.90.180.128";
         $dbname = "gbook";
-        $user = "root";
-        $password = "";
+        $user = "taxiru";
+        $password = "6ou7O1izK0";
 
         try {
 
@@ -31,18 +31,21 @@ class User implements Iuser
         $status = 0;
 
             try {
-                $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
-                $user = $this->db->query($sql);
-                $userCount = $user->rowCount();
-        } catch (PDOException $e) {
+                $sql = "SELECT * FROM users WHERE login = ? ";
+                $stm = $this->db->prepare($sql);
+                $stm->execute(array($login));
+                $user = $stm->fetch(PDO::FETCH_ASSOC);
+
+                     } catch (PDOException $e) {
                 echo 'Error : ' . $e->getMessage();
                 exit();
             }
 
-            if ( $userCount == 0){
 
+
+            if ( $user == false){
                 try {
-                    $stmt = $this->db->prepare("INSERT INTO users (login,email,password,date,status) VALUES (?,?,?,?,?)");
+                    $stmt = $this->db->prepare("INSERT INTO users (login,email,                 password,date,status) VALUES (?,?,?,?,?)");
                    return $stmt->execute(array(
                         $login,
                         $email,
@@ -53,21 +56,37 @@ class User implements Iuser
                     echo 'Error : ' . $e->getMessage();
         }
         }
+
     }
+
+
     function singIn($login,$password){
         try {
-            $sql = "SELECT * FROM users WHERE login = '$login' AND password='$password'";
+            $sql = "SELECT * FROM users WHERE login = ? AND password = ? ";
             $stm = $this->db->prepare($sql);
-            $stm->execute();
+            $stm->execute(array($login,$password));
             $user = $stm->fetch(PDO::FETCH_ASSOC);
-            var_dump($user);
-            $_SESSION['auth'] = true;
-            $_SESSION['login'] = $user['login'];
-            return $user;
+            //var_dump($user);
+            if($user == true){
+                $_SESSION['auth'] = true;
+                $_SESSION['login'] = $user['login'];
+                return $user;
+            }
+
+
         } catch (PDOException $e) {
             echo 'Error : ' . $e->getMessage();
             exit();
         }
+    }
+
+    public function addToCard($id){
+
+        //$_SESSION['countCart'] =
+        $_SESSION['cart']['id'][] = $id;
+        $_SESSION['cart']['table'][] = $_SESSION['table'];
+        $_SESSION['countCart'] = count($_SESSION['cart']);
+         return $_SESSION['cart'];
     }
 
     public function clear($value)

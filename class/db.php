@@ -6,10 +6,10 @@ class Db{
     function __construct()
     {
 
-        $host = "localHost";
+        $host = "81.90.180.128";
         $dbname = "gbook";
-        $user = "root";
-        $password = "";
+        $user = "taxiru";
+        $password = "6ou7O1izK0";
 
         try {
 
